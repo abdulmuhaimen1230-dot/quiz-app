@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastery Quiz App</title>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-circles">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+    </div>
+
+    <div id="auth-container" class="glass-card">
+        <div class="header">
+            <h2>Welcome</h2>
+            <p>Sign up to start your assessment</p>
+        </div>
+        <form id="login-form">
+            <div class="input-group">
+                <input type="text" id="user-name" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="user-email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="user-pass" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn-primary" id="submit-btn">Start Quiz</button>
+        </form>
+    </div>
+
+    <div id="quiz-container" class="glass-card hidden">
+        <div class="quiz-header">
+            <span id="category-tag">General Web</span>
+        </div>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+        
+        <div id="question-box">
+            <h3 id="question-text">Loading question...</h3>
+            <div id="options-list"></div>
+        </div>
+        
+        <div class="quiz-footer">
+            <span id="question-count">Question 1 of 25</span>
+            <button id="next-btn" class="btn-next hidden">Next Question</button>
+        </div>
+    </div>
+
+    <div id="result-container" class="glass-card hidden">
+        <h2 style="text-align: center;">Quiz Completed!</h2>
+        <div class="score-circle">
+            <span id="final-score">0</span>
+            <small>out of 25</small>
+        </div>
+        <p id="result-message" style="text-align: center; margin-bottom: 20px;"></p>
+        <button onclick="location.reload()" class="btn-primary">Restart Quiz</button>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
